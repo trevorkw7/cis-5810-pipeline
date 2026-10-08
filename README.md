@@ -7,6 +7,7 @@
 - [Splat notebook](https://colab.research.google.com/drive/16XE4E3OfA0p5EccHDMrwvLUykVrLxEF1): Nerfstudio splatfacto on Colab, trains the splat from the high-angle frames and renders a low orbit
 - [Model v1: real only](https://universe.roboflow.com/new-workspace-9juoy/yolo-real-vs-synthetic-real): Roboflow version 1, YOLOv11s on 54 real frames, 56.5 mAP50 on the blind set
 - [Model v3: real + synthetic](https://universe.roboflow.com/new-workspace-9juoy/yolo-real-vs-synthetic-real): Roboflow version 3, same recipe plus the 108 renders, 98.7 mAP50 on the blind set
+- [Splat](splat/export/): trained splatfacto model (splat.ply, 194k Gaussians), 31.4 PSNR / 0.922 SSIM / 0.099 LPIPS on 8 held-out high-angle frames
 - Weights: [real only](weights/real_only.pt) · [real + synthetic](weights/real_plus_synthetic.pt), fine-tuned YOLOv11s checkpoints exported from Roboflow
 
 | | [Real only (v1)](https://app.roboflow.com/new-workspace-9juoy/yolo-real-vs-synthetic-real/1) | [Real + synthetic (v3)](https://app.roboflow.com/new-workspace-9juoy/yolo-real-vs-synthetic-real/3) |
@@ -32,6 +33,7 @@ splat/
   prepare_input.py            packs the training frames and COLMAP poses into the zip the notebook uploads
   low_orbit_camera_path.json  the 108 low-angle cameras the renders come from
   colmap/                     camera poses and sparse points for the training frames
+  export/                     the trained splat (splat.ply), its Nerfstudio config, frame transform and eval metrics
 docs/overview.png             pipeline diagram with results
 results/RESULTS.md            the same eval table
 weights/                      fine-tuned YOLOv11s checkpoints (real only, real + synthetic)
